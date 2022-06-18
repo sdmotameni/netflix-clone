@@ -1,13 +1,20 @@
 import Head from "next/head";
-import { useState, useEffect } from "react";
 
 import Movies from "../components/Movies";
+import Banner from "../components/Banner";
 
 import api from "../apisauceInstance";
 import requests from "../requests";
-import formatCategoryName from "../utils/formatCategoryName";
+import { formatCategoryName, pickRandomMovie } from "../utils";
+import { useState, useEffect } from "react";
 
 export default function Home({ movies }) {
+  const [bannerMovie, setBannerMovie] = useState(null);
+
+  useEffect(() => {
+    setBannerMovie(pickRandomMovie(movies));
+  }, []);
+
   return (
     <div>
       <Head>
@@ -17,6 +24,7 @@ export default function Home({ movies }) {
       </Head>
 
       <main className="min-h-screen bg-[#141414]">
+        {bannerMovie && <Banner movie={bannerMovie} />}
         <div className="px-24">
           <Movies movies={movies} />
         </div>
@@ -24,6 +32,9 @@ export default function Home({ movies }) {
     </div>
   );
 }
+
+// TODO: Too much data being passed to the component.
+// https://nextjs.org/docs/messages/large-page-data
 
 export async function getServerSideProps(context) {
   const obj = {};
