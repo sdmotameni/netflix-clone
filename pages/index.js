@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import Movies from "../components/Movies";
 import Banner from "../components/Banner";
+import Navbar from "../components/Navbar";
 
 import api from "../apisauceInstance";
 import requests from "../requests";
@@ -24,8 +25,9 @@ export default function Home({ movies }) {
       </Head>
 
       <main className="min-h-screen bg-[#141414]">
+        <Navbar />
         {bannerMovie && <Banner movie={bannerMovie} />}
-        <div className="px-24">
+        <div className="px-16">
           <Movies movies={movies} />
         </div>
       </main>

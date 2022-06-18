@@ -7,7 +7,7 @@ export default function Row({ category, movies }) {
         <h2 className="text-2xl font-semibold text-white">{category}</h2>
         <div className="text-white">Pagination</div>
       </div>
-      <div className="flex space-x-2 overflow-y-scroll scrollbar-hide">
+      <div className="flex mt-3 space-x-2 overflow-y-scroll scrollbar-hide">
         {movies.map((movie, index) => (
           <div key={index}>
             <Poster movie={movie} />

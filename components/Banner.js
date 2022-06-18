@@ -6,7 +6,7 @@ export default function Banner({ movie }) {
   console.log(movie);
 
   return (
-    <div className="relative text-white">
+    <div className="relative text-white mb-14">
       <img
         className="object-contain w-full h-auto opacity-60"
         src={imageUrl}
@@ -28,6 +28,8 @@ export default function Banner({ movie }) {
           {movie.overview}
         </div>
       </div>
+      {/* Fade Gradient */}
+      <div className="absolute bottom-0 h-64 w-full bg-gradient-to-t from-[#141414]" />
     </div>
   );
 }
