@@ -3,6 +3,7 @@ import Head from "next/head";
 import Movies from "../components/Movies";
 import Banner from "../components/Banner";
 import Navbar from "../components/Navbar";
+import Footer from "../components/common/Footer";
 
 import api from "../apisauceInstance";
 import requests from "../requests";
@@ -31,6 +32,7 @@ export default function Home({ movies }) {
           <Movies movies={movies} />
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
