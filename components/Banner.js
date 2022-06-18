@@ -3,8 +3,6 @@ import { PlayIcon, InformationCircleIcon } from "@heroicons/react/solid";
 export default function Banner({ movie }) {
   const imageUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
 
-  console.log(movie);
-
   return (
     <div className="relative text-white mb-14">
       <img

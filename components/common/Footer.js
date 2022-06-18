@@ -7,7 +7,7 @@ export default function Footer() {
         alt=""
       />
       <p className="text-sm text-white text-gray-400">
-        Developed by Sep Motameni
+        Developed by <span className="font-semibold">Sep Motameni</span>
       </p>
     </footer>
   );
