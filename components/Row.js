@@ -21,11 +21,13 @@ export default function Row({ category, movies }) {
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
         >
-          {movies.map((movie, index) => (
-            <SwiperSlide key={index}>
-              <Poster movie={movie} />
-            </SwiperSlide>
-          ))}
+          {movies.map((movie, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <Poster movie={movie} category={category} />
+              </SwiperSlide>
+            );
+          })}
           <span slot="wrapper-start">
             <div className="w-24" />
           </span>

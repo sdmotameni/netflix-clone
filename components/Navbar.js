@@ -3,7 +3,11 @@ export default function Navbar() {
     <nav className="absolute z-10 flex justify-between w-full px-20 py-3">
       {/* Fade Gradient */}
       <div className="flex items-center space-x-8 text-lg text-white">
-        <img className="object-contain w-32" src="/fakeflix-logo.png" alt="" />
+        <img
+          className="object-contain w-32 h-20"
+          src="/netflix-logo.svg"
+          alt=""
+        />
         <div>Home</div>
         <div>TV Series</div>
         <div>Movies</div>

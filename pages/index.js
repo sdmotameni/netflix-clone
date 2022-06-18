@@ -27,13 +27,14 @@ export default function Home({ movies }) {
 
       <main className="min-h-screen bg-[#141414]">
         <Navbar />
-        {bannerMovie && <Banner movie={bannerMovie} />}
+        {bannerMovie && (
+          <div className="">
+            <Banner movie={bannerMovie} />
+          </div>
+        )}
         <Movies movies={movies} />
-        {/* 
-        <div className="px-16">
-          <Movies movies={movies} />
-        </div> */}
       </main>
+      {/* TODO: Do cool animation that moves around page for footer */}
       <Footer />
     </div>
   );
@@ -41,7 +42,6 @@ export default function Home({ movies }) {
 
 // TODO: Too much data being passed to the component.
 // https://nextjs.org/docs/messages/large-page-data
-
 export async function getServerSideProps(context) {
   const obj = {};
 
