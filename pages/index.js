@@ -28,9 +28,11 @@ export default function Home({ movies }) {
       <main className="min-h-screen bg-[#141414]">
         <Navbar />
         {bannerMovie && <Banner movie={bannerMovie} />}
+        <Movies movies={movies} />
+        {/* 
         <div className="px-16">
           <Movies movies={movies} />
-        </div>
+        </div> */}
       </main>
       <Footer />
     </div>
