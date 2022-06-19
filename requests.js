@@ -16,4 +16,9 @@ const requests = {
   fetchAnimationMovies: `/discover/movie?api_key=${REACT_APP_API_KEY}&with_genres=16&sort_by=popularity.desc&language=${LANG}`,
 };
 
-export default requests;
+const otherRequests = {
+  // genre endpoint path
+  fetchGenres: `/genre/movie/list?api_key=${REACT_APP_API_KEY}&language=${LANG}`,
+};
+
+export { requests, otherRequests };

@@ -3,6 +3,8 @@ import Poster from "./Poster";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
+import { useEffect } from "react";
+
 export default function Row({ category, movies }) {
   return (
     <div className="relative">
@@ -13,18 +15,19 @@ export default function Row({ category, movies }) {
         <h2 className="text-2xl font-semibold text-white">{category}</h2>
         <div className="text-white">Pagination</div>
       </div>
-      <div className="flex mt-3 overflow-y-scroll scrollbar-hide">
+      <div className="flex mt-3 overflow-visible overflow-y-scroll scrollbar-hide">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={130}
+          spaceBetween={10}
           slidesPerView={7}
+          freeMode={true}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
         >
           {movies.map((movie, index) => {
             return (
               <SwiperSlide key={index}>
-                <Poster movie={movie} category={category} />
+                {<Poster movie={movie} category={category} />}
               </SwiperSlide>
             );
           })}
