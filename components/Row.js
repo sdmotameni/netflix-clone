@@ -11,11 +11,11 @@ export default function Row({ category, movies }) {
       {/* Fade gradients */}
       <div className="absolute left-0 z-10 w-20 h-full bg-gradient-to-r from-[#141414]" />
       <div className="absolute right-0 z-10 w-20 h-full bg-gradient-to-l from-[#141414]" />
-      <div className="flex justify-between px-24">
+      <div className="flex justify-between px-24 mb-3">
         <h2 className="text-2xl font-semibold text-white">{category}</h2>
         <div className="text-white">Pagination</div>
       </div>
-      <div className="flex mt-3 overflow-visible overflow-y-scroll scrollbar-hide">
+      <div>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={10}

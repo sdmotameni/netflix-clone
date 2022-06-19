@@ -15,6 +15,11 @@ export default function Home({ movies }) {
 
   useEffect(() => {
     setBannerMovie(pickRandomMovie(movies));
+
+    // TODO: Implement this the right way
+    // setInterval(() => {
+    //   setBannerMovie(pickRandomMovie(movies));
+    // }, 9000);
   }, []);
 
   return (
