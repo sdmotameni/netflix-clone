@@ -1,9 +1,12 @@
 import "../styles/globals.css";
+
+// TOOD: Transform splash css to component lvl css using [*].module.css
+import "../styles/splash.css";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-
 
 /* NOTE from Nextjs doc:
 These styles (styles.css) will apply to
@@ -13,7 +16,6 @@ and to avoid conflicts, you may only import them inside pages/_app.js.
 In development, expressing stylesheets this way allows your styles to be hot reloaded 
 as you edit them—meaning you can keep application state.
 */
-
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
