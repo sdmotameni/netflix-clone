@@ -23,7 +23,7 @@ export default function Home({ movies }) {
   }, []);
 
   return (
-    <div>
+    <>
       <Head>
         <title>Netflix Clone by Sep Motameni</title>
         <meta name="description" content="Netflix Clone by Sep Motameni" />
@@ -41,7 +41,7 @@ export default function Home({ movies }) {
       </main>
       {/* TODO: Do cool animation that moves around page for footer */}
       <Footer />
-    </div>
+    </>
   );
 }
 
