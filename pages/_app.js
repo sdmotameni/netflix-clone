@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
+import Splash from "../components/common/Splash";
 import "../styles/globals.css";
-
-// TOOD: Transform splash css to component lvl css using [*].module.css
+// TODO: transform into component level css using next modules
 import "../styles/splash.css";
 
 import "swiper/css";
@@ -18,7 +19,15 @@ as you edit them—meaning you can keep application state.
 */
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  const [splashPlaying, setSplashPlaying] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSplashPlaying(false);
+    }, 5300);
+  }, []);
+
+  return splashPlaying ? <Splash /> : <Component {...pageProps} />;
 }
 
 export default MyApp;

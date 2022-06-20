@@ -5,11 +5,10 @@ import { motion, useAnimation } from "framer-motion";
 
 import { posterDetailVariants } from "../utils/motionUtils";
 
-export default function Poster({ movie, category }) {
+export default function Poster({ movie, isPoster = false }) {
   const controls = useAnimation();
 
-  const imageUri =
-    category == "NetflixOriginals" ? movie.poster_path : movie.backdrop_path;
+  const imageUri = isPoster ? movie.poster_path : movie.backdrop_path;
   const imageUrl = `https://image.tmdb.org/t/p/original${imageUri}`;
 
   const handleHover = (active) => {

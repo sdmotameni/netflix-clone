@@ -52,7 +52,12 @@ export default function Row({ category, movies }) {
           {movies.map((movie, index) => {
             return (
               <SwiperSlide key={index}>
-                {<Poster movie={movie} category={category} />}
+                {
+                  <Poster
+                    movie={movie}
+                    isPoster={category == "NetflixOriginals"}
+                  />
+                }
               </SwiperSlide>
             );
           })}
