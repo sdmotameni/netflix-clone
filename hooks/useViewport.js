@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-// TODO: Not my code #2
 const useViewport = () => {
   const [width, setWidth] = useState(null);
   const [height, setHeight] = useState(null);

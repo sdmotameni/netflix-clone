@@ -1,9 +1,8 @@
 import { PlayIcon, InformationCircleIcon } from "@heroicons/react/solid";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { bannerVariants, bannerChildVariants } from "../motionUtils";
+import { bannerVariants, bannerChildVariants } from "../utils/motionUtils";
 
-// TODO: make banner size 2/3 of screen size
 export default function Banner({ movie }) {
   const imageUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
 

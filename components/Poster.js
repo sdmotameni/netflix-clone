@@ -3,7 +3,7 @@ import { PlayIcon } from "@heroicons/react/solid";
 import { PlusCircleIcon, ArrowCircleDownIcon } from "@heroicons/react/outline";
 import { motion, useAnimation } from "framer-motion";
 
-import { posterDetailVariants } from "../motionUtils";
+import { posterDetailVariants } from "../utils/motionUtils";
 
 export default function Poster({ movie, category }) {
   const controls = useAnimation();

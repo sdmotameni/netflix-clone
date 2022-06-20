@@ -4,14 +4,13 @@ import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 import { useEffect } from "react";
 
 import Poster from "./Poster";
-import SwiperButton from "../components/common/SwiperButton";
 import useViewport from "../hooks/useViewport";
+// import SwiperButton from "../components/common/SwiperButton";
 
 export default function Row({ category, movies }) {
   const { width } = useViewport();
 
-  // TODO: Not my code #1
-  const customSwiperParams = {
+  const rowSwiperParams = {
     observer: true,
     observeParents: true,
     breakpoints: {
@@ -43,10 +42,10 @@ export default function Row({ category, movies }) {
         <h2 className="text-lg font-semibold text-white lg:text-2xl">
           {category}
         </h2>
-        <div className="text-white">Pagination</div>
+        <div className="text-white">{/* pagination component */}</div>
       </div>
       <div className="relative">
-        <Swiper {...customSwiperParams} modules={[Pagination, Scrollbar, A11y]}>
+        <Swiper {...rowSwiperParams} modules={[Pagination, Scrollbar, A11y]}>
           {/* <SwiperButton swipeNext={false}>
             <ChevronLeftIcon className="w-16 h-16 text-gray-600" />
           </SwiperButton> */}
