@@ -77,6 +77,7 @@ export default function Home() {
 // * maybe SSR the movies data?
 
 // Current:
-// * Skeleton
 // * genre  handle
+// * Skeleton
+// * Use HOC to wrap all pages with details modal and context provider
 // * State for my list
