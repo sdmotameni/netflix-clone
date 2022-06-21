@@ -78,7 +78,5 @@ export default function Home() {
 
 // Current:
 // * Skeleton
-// * Modal for movie details
 // * genre  handle
-// * fix credits animation
 // * State for my list
