@@ -27,8 +27,7 @@ export default function Home() {
     setMovies(obj);
     setBannerMovie(pickRandomMovie(obj));
 
-    // TODO: Setup counter interval in a better way, need a cleanup function cause if page instance doesnt refresh, each time page is clicked or fast-refreshed,
-    // it will create a new timer
+    // TODO: Extract interval timer & setup explicit cleanup fn
     setInterval(() => {
       setBannerMovie(pickRandomMovie(obj));
     }, 6000);
