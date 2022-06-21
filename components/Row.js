@@ -4,7 +4,6 @@ import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 
 import Poster from "./Poster";
 import useViewport from "../hooks/useViewport";
-// import SwiperButton from "../components/common/SwiperButton";
 
 export default function Row({ category, movies }) {
   const { width } = useViewport();

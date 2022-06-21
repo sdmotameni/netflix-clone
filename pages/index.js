@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import Movies from "../components/Movies";
@@ -7,6 +7,8 @@ import Banner from "../components/Banner";
 import Navbar from "../components/Navbar";
 import Footer from "../components/common/Footer";
 
+import DemoContext from "../context/DemoContext";
+import DetailsModal from "../components/common/DetailsModal";
 import api from "../apisauceInstance";
 import { requests } from "../requests";
 import { formatCategoryName, pickRandomMovie } from "../utils/utils";
@@ -14,6 +16,7 @@ import { formatCategoryName, pickRandomMovie } from "../utils/utils";
 export default function Home() {
   const [bannerMovie, setBannerMovie] = useState(null);
   const [movies, setMovies] = useState(null);
+  const [selectedMovie, setSelectedMovie] = useState();
 
   const fetchMovies = async () => {
     const obj = {};
@@ -37,6 +40,14 @@ export default function Home() {
     fetchMovies();
   }, []);
 
+  const showModal = (movie) => {
+    setSelectedMovie(movie);
+  };
+
+  const closeModal = () => {
+    setSelectedMovie(null);
+  };
+
   return (
     <>
       <Head>
@@ -44,13 +55,16 @@ export default function Home() {
         <meta name="description" content="Netflix Clone by Sep Motameni" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="min-h-screen bg-[#141414]">
-        <Navbar currentPage="home" />
-        <AnimatePresence>
-          {bannerMovie && <Banner movie={bannerMovie} />}
-        </AnimatePresence>
-        {movies && <Movies movies={movies} />}
-      </main>
+      <DemoContext.Provider value={{ showModal, closeModal }}>
+        <main className="min-h-screen bg-[#141414]">
+          <Navbar currentPage="home" />
+          <AnimatePresence>
+            {bannerMovie && <Banner movie={bannerMovie} />}
+          </AnimatePresence>
+          {movies && <Movies movies={movies} />}
+        </main>
+        <DetailsModal movie={selectedMovie} />
+      </DemoContext.Provider>
       <Footer />
     </>
   );

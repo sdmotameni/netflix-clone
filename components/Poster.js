@@ -5,8 +5,12 @@ import { motion, useAnimation } from "framer-motion";
 
 import { posterDetailVariants } from "../utils/motionUtils";
 
+import DemoContext from "../context/DemoContext";
+import { useContext } from "react";
+
 export default function Poster({ movie, isPoster = false }) {
   const controls = useAnimation();
+  const { showModal } = useContext(DemoContext);
 
   const imageUri = isPoster ? movie.poster_path : movie.backdrop_path;
   const imageUrl = `https://image.tmdb.org/t/p/original${imageUri}`;
@@ -19,6 +23,7 @@ export default function Poster({ movie, isPoster = false }) {
     <div
       onMouseEnter={() => handleHover(true)}
       onMouseLeave={() => handleHover(false)}
+      onClick={() => showModal(movie)}
       className="relative h-auto overflow-hidden rounded-lg group"
     >
       <img
@@ -33,7 +38,10 @@ export default function Poster({ movie, isPoster = false }) {
         className="absolute bottom-0 p-2"
       >
         <div className="flex -ml-1 text-white/90">
-          <PlayIcon className="w-8 h-8 text-[#c13e32]" />
+          <PlayIcon
+            className="w-8 h-8 text-[#c13e32]"
+            onClick={() => showModal(movie)}
+          />
           <PlusCircleIcon className="w-8 h-8" />
           <ArrowCircleDownIcon className="w-8 h-8" />
         </div>
