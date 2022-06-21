@@ -28,7 +28,8 @@ export default function Home() {
     setMovies(obj);
     setBannerMovie(pickRandomMovie(obj));
 
-    // TODO: Setup counter interval in a better way
+    // TODO: Setup counter interval in a better way, need a cleanup function cause if page instance doesnt refresh, each time page is clicked or fast-refreshed,
+    // it will create a new timer
     setInterval(() => {
       setBannerMovie(pickRandomMovie(obj));
     }, 6000);
@@ -60,7 +61,7 @@ export default function Home() {
 // Future features:
 // * Sign in page
 // * account details component
-// * Row Component arrow handle/pagination
+// * row: pagination, view all, scale and opacity poster
 // * maybe SSR the movies data?
 
 // Current:
