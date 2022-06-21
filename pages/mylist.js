@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Movies from "../components/Movies";
-import Footer from "../components/common/Credits";
+import Footer from "../components/common/Footer";
 
 export default function MyList({ movies = {} }) {
   return (
