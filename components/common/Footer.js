@@ -16,7 +16,7 @@ export default function Footer() {
   };
 
   return (
-    <div className="bg-[#141414] py-10">
+    <footer className="bg-[#141414] py-10">
       <motion.span
         className="flex items-center justify-center space-x-3"
         initial="hidden"
@@ -32,6 +32,6 @@ export default function Footer() {
           Developed by <span className="font-semibold">Sep Motameni</span>
         </p>
       </motion.span>
-    </div>
+    </footer>
   );
 }
