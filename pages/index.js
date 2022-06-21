@@ -10,6 +10,8 @@ import api from "../apisauceInstance";
 import { requests } from "../requests";
 import { formatCategoryName, pickRandomMovie } from "../utils/utils";
 
+import { AnimatePresence } from "framer-motion";
+
 export default function Home() {
   const [bannerMovie, setBannerMovie] = useState(null);
   const [movies, setMovies] = useState(null);
@@ -25,6 +27,11 @@ export default function Home() {
 
     setMovies(obj);
     setBannerMovie(pickRandomMovie(obj));
+
+    // TODO: Setup counter interval in a better way
+    setInterval(() => {
+      setBannerMovie(pickRandomMovie(obj));
+    }, 6000);
   };
 
   useEffect(() => {
@@ -40,7 +47,9 @@ export default function Home() {
       </Head>
       <main className="min-h-screen bg-[#141414]">
         <Navbar currentPage="home" />
-        {bannerMovie && <Banner movie={bannerMovie} />}
+        <AnimatePresence>
+          {bannerMovie && <Banner movie={bannerMovie} />}
+        </AnimatePresence>
         {movies && <Movies movies={movies} />}
         <Credits />
       </main>
@@ -53,7 +62,6 @@ export default function Home() {
 // * account details component
 // * Row Component arrow handle/pagination
 // * maybe SSR the movies data?
-// * banner interval timer
 
 // Current:
 // * Skeleton

@@ -32,8 +32,8 @@ export default function Poster({ movie, isPoster = false }) {
         variants={posterDetailVariants}
         className="absolute bottom-0 p-2"
       >
-        <div className="flex -ml-1 text-white">
-          <PlayIcon className="w-8 h-8" />
+        <div className="flex -ml-1 text-white/90">
+          <PlayIcon className="w-8 h-8 text-[#c13e32]" />
           <PlusCircleIcon className="w-8 h-8" />
           <ArrowCircleDownIcon className="w-8 h-8" />
         </div>
