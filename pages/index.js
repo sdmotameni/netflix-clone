@@ -5,7 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import Movies from "../components/Movies";
 import Banner from "../components/Banner";
 import Navbar from "../components/Navbar";
-import Credits from "../components/common/Credits";
+import Footer from "../components/common/Footer";
 
 import api from "../apisauceInstance";
 import { requests } from "../requests";
@@ -46,13 +46,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="min-h-screen bg-[#141414]">
-        {/* <Navbar currentPage="home" /> */}
+        <Navbar currentPage="home" />
         <AnimatePresence>
           {bannerMovie && <Banner movie={bannerMovie} />}
         </AnimatePresence>
         {movies && <Movies movies={movies} />}
-        <Credits />
       </main>
+      <Footer />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function Credits() {
+export default function Footer() {
   const footerVariants = {
     hidden: {
       scale: 2,

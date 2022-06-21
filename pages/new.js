@@ -3,7 +3,7 @@ import Head from "next/head";
 
 import Navbar from "../components/Navbar";
 import MoviesGrid from "../components/common/MoviesGrid";
-import Credits from "../components/common/Credits";
+import Footer from "../components/common/Footer";
 
 import api from "../apisauceInstance";
 import { requests } from "../requests";
@@ -30,8 +30,8 @@ export default function MoviesPage() {
       <main className="min-h-screen bg-[#141414]">
         <Navbar currentPage="new" />
         {movies && <MoviesGrid title="New and Popular" movies={movies} />}
-        <Credits />
       </main>
+      <Footer />
     </>
   );
 }
