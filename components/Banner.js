@@ -1,9 +1,13 @@
 import { PlayIcon, InformationCircleIcon } from "@heroicons/react/solid";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { useContext } from "react";
 
+import ModalContext from "../context/ModalContext";
 import { bannerVariants, bannerChildVariants } from "../utils/motionUtils";
 
 export default function Banner({ movie }) {
+  const { showModal } = useContext(ModalContext);
+
   const imageUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
 
   return (
@@ -30,11 +34,17 @@ export default function Banner({ movie }) {
           {movie.name || movie.title}
         </div>
         <div className="flex items-center w-2/3 space-x-3">
-          <button className="bg-[#d22f27] hover:bg-red-700 py-2 lg:py-3 rounded w-1/2 font-medium flex items-center justify-center space-x-1">
+          <button
+            onClick={() => showModal(movie)}
+            className="bg-[#d22f27] hover:bg-red-700 py-2 lg:py-3 rounded w-1/2 font-medium flex items-center justify-center space-x-1"
+          >
             <PlayIcon className="object-contain w-5 h-5" />
             <p>Play</p>
           </button>
-          <button className="flex items-center justify-center w-1/2 py-2 space-x-1 font-medium rounded cursor-pointer lg:py-3 bg-gray-400/60 hover:bg-gray-500/60">
+          <button
+            onClick={() => showModal(movie)}
+            className="flex items-center justify-center w-1/2 py-2 space-x-1 font-medium rounded cursor-pointer lg:py-3 bg-gray-400/60 hover:bg-gray-500/60"
+          >
             <InformationCircleIcon className="object-contain w-5 h-5" />
             <p>More Info</p>
           </button>
