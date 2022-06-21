@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 
 import Movies from "../components/Movies";
 import Banner from "../components/Banner";
@@ -9,8 +10,6 @@ import Credits from "../components/common/Credits";
 import api from "../apisauceInstance";
 import { requests } from "../requests";
 import { formatCategoryName, pickRandomMovie } from "../utils/utils";
-
-import { AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const [bannerMovie, setBannerMovie] = useState(null);
@@ -47,7 +46,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="min-h-screen bg-[#141414]">
-        <Navbar currentPage="home" />
+        {/* <Navbar currentPage="home" /> */}
         <AnimatePresence>
           {bannerMovie && <Banner movie={bannerMovie} />}
         </AnimatePresence>
