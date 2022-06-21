@@ -7,7 +7,7 @@ import Banner from "../components/Banner";
 import Navbar from "../components/Navbar";
 import Footer from "../components/common/Footer";
 
-import DemoContext from "../context/DemoContext";
+import ModalContext from "../context/ModalContext";
 import DetailsModal from "../components/common/DetailsModal";
 import api from "../apisauceInstance";
 import { requests } from "../requests";
@@ -55,7 +55,7 @@ export default function Home() {
         <meta name="description" content="Netflix Clone by Sep Motameni" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <DemoContext.Provider value={{ showModal, closeModal }}>
+      <ModalContext.Provider value={{ showModal, closeModal }}>
         <main className="min-h-screen bg-[#141414]">
           <Navbar currentPage="home" />
           <AnimatePresence>
@@ -64,7 +64,7 @@ export default function Home() {
           {movies && <Movies movies={movies} />}
         </main>
         <DetailsModal movie={selectedMovie} />
-      </DemoContext.Provider>
+      </ModalContext.Provider>
       <Footer />
     </>
   );

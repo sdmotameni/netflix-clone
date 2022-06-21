@@ -5,12 +5,12 @@ import { motion, useAnimation } from "framer-motion";
 
 import { posterDetailVariants } from "../utils/motionUtils";
 
-import DemoContext from "../context/DemoContext";
+import ModalContext from "../context/ModalContext";
 import { useContext } from "react";
 
 export default function Poster({ movie, isPoster = false }) {
   const controls = useAnimation();
-  const { showModal } = useContext(DemoContext);
+  const { showModal } = useContext(ModalContext);
 
   const imageUri = isPoster ? movie.poster_path : movie.backdrop_path;
   const imageUrl = `https://image.tmdb.org/t/p/original${imageUri}`;
@@ -42,7 +42,10 @@ export default function Poster({ movie, isPoster = false }) {
             className="w-8 h-8 text-[#c13e32]"
             onClick={() => showModal(movie)}
           />
-          <PlusCircleIcon className="w-8 h-8" />
+          <PlusCircleIcon
+            className="w-8 h-8"
+            onClick={() => console.log("Added to state list")}
+          />
           <ArrowCircleDownIcon className="w-8 h-8" />
         </div>
         <div className="text-lg font-semibold text-white ">

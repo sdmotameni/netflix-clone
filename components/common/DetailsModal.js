@@ -1,11 +1,11 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect, useContext } from "react";
+import { motion } from "framer-motion";
+import { useContext } from "react";
+
+import ModalContext from "../../context/ModalContext";
 import { modalVariants, modalOverlayVariants } from "../../utils/motionUtils";
 
-import DemoContext from "../../context/DemoContext";
-
 export default function DetailsModal({ movie }) {
-  const { closeModal } = useContext(DemoContext);
+  const { closeModal } = useContext(ModalContext);
 
   return (
     movie && (
@@ -14,6 +14,7 @@ export default function DetailsModal({ movie }) {
         animate="visible"
         exit="hidden"
         variants={modalOverlayVariants}
+        onClick={closeModal}
         className="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-gray-900/90"
       >
         <motion.div
@@ -59,8 +60,12 @@ export default function DetailsModal({ movie }) {
               {movie.original_language}
             </div>
             <div>
-              <span className="text-gray-500">Age Classification:</span> Not
-              available
+              <span className="text-gray-500">Age Classification:</span>{" "}
+              {movie.adult
+                ? movie.adult
+                  ? "Adult (Rated R)"
+                  : "Suitable for all ages"
+                : "Not Available"}
             </div>
           </div>
         </motion.div>
