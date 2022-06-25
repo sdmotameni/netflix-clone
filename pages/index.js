@@ -57,6 +57,13 @@ export default function Home() {
       </Head>
       <ModalContext.Provider value={{ showModal, closeModal }}>
         <main className="min-h-screen bg-[#141414]">
+          <div className="z-50 w-full py-5 bg-yellow-400 ">
+            <p className="font-semibold text-center">
+              This site is a clone! This is NOT the real Netflix. Do NOT enter
+              any real Netflix credentials. I built this for educational
+              purposes. -Sep
+            </p>
+          </div>
           <Navbar currentPage="home" />
           <AnimatePresence>
             {bannerMovie && <Banner movie={bannerMovie} />}
