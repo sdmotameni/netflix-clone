@@ -29,7 +29,7 @@ export default function Navbar({ currentPage }) {
           ))}
         </ul>
         <div className="text-white">
-          <p>Account Details</p>
+          <p> </p>
         </div>
       </div>
     </nav>
