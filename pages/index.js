@@ -24,7 +24,7 @@ export default function Home() {
     for (let request in requests) {
       let categoryName = formatCategoryName(request);
       const { data } = await api.get(requests[request]);
-      obj[categoryName] = data.results;
+      if (data.results) obj[categoryName] = data.results;
     }
 
     setMovies(obj);
